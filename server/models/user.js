@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 // {
-//   email: 'andrew@example.com',
-//   password: 'myPass123',
-//   tokens:[{
-//     access:'auth',
-//     token:'poijasdpfoimasdbjsiweprojwer'
+//   email:'andrew@example.com',
+//   password:'asdfasfdasfdasf',
+//   token:[{
+//     access: 'auth',
+//     token: 'asdfqwerzxcv'
 //   }]
 // }
 
@@ -15,24 +15,24 @@ var User = mongoose.model('User', {
     type: String,
     required: true,
     trim: true,
-    minlength: 1,
+    minlength: 1
     unique:true,
-    validator: {
+    validate:{
       validator: validator.isEmail,
-      message: '{value} is not a valid email'
+      message: '{VALUE} is not a valid email'
     }
   },
-  password: {
-    type: String,
-    require: true,
-    minlength:6
+  password:{
+    type:String,
+    require:true,
+    minlength: 6
   },
   tokens: [{
     access: {
       type:String,
-      required:true
+      required: true
     },
-    token:{
+    token: {
       type: String,
       required: true
     }
